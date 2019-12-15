@@ -64,10 +64,65 @@ client.connect(err => {
                 }
             ];
   
+  //Inserting the above created documents into collection - 
+/*
   collection.insertMany(data, function(err,res){
     console.log("Data inserted");
   });
-    
+*/
+
+//Displaying the all the documents from the collections
+
+collection.find({}).toArray(function(err,response){
+  if(err) throw err;
+  //console.log(response);
+});
+
+//Display a particular document from the collection
+
+var findQuery = { 'firstName': "Sukhpreet Singh"};
+collection.findOne(findQuery,function(err,response){
+  if(err) throw err;
+  //console.log(response);
+})
+
+//Updating a particular document in the collection
+/*
+var updateQuery = {'accountNo':12345};
+var updateValue ={'$set':{'savingsInterestRate':30}};
+collection.updateOne(updateQuery,updateValue,function(err,response){
+  if(err) throw err;
+  //console.log("Collection updated");
+})
+*/
+
+//Updating multiple documents in the collection at the same time
+/*
+var updateQuery2 = {'nationality':'Indian'};
+var updateValue2 ={'$set':{'accountType':'Ultra Premium'}};
+collection.updateMany(updateQuery2,updateValue2,function(err,response){
+  if(err) throw err;
+  //console.log("Collections are updated");
+})
+*/
+
+//Delete a particular document from the collection 
+/*
+var deleteQuery = {'firstName':'Radha'};
+collection.deleteOne(deleteQuery,function(err,response){
+  if(err) throw err;
+  console.log("Collection has been Removed !");
+})
+*/
+
+//Delete many documents from the collection
+/*
+var deleteQuery1 = {'gender':'Male'};
+collection.deleteMany(deleteQuery1,function(err,response){
+  if(err)throw err;
+  console.log("Collections have been Removed!");
+})
+*/
   client.close();
   console.log('Db closed..');
 });

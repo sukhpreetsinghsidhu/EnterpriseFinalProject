@@ -101,10 +101,45 @@ client.connect(err => {
                 bonus:500,
                 }
                 ];
-  
+  /*
   collection.insertMany(data, function(err,res){
     console.log("Data inserted");
   });
+
+ const collection2 = client.db("TheBankofIndia").collection("c07477566Col2");
+ collection2.insertMany(dataCol2, function(err,res){
+   console.log("Data inserted");
+ });
+
+ const collection3 = client.db("TheBankofIndia").collection("c07477566Col3");
+ collection3.insertMany(dataCol3, function(err,res){
+   console.log("Data inserted");
+ });
+*/
+collection.find({}).toArray(function(err,response){
+  if(err) throw err;
+  console.log(response);
+});
+
+var findQuery = { 'firstName': "Sukhpreet Singh"};
+collection.findOne(findQuery,function(err,response){
+  if(err) throw err;
+  console.log(response);
+});
+/*
+var updateQuery = {'employeeNo':4441};
+var updateValue ={'$set':{'departmentNo':45}};
+collection.updateOne(updateQuery,updateValue,function(err,response){
+  if(err) throw err;
+  console.log("Collection updated");
+});
+
+var deleteQuery = {'firstName':'Iris'};
+collection.deleteOne(deleteQuery,function(err,response){
+  if(err) throw err;
+  console.log("Collection has been Removed !");
+});
+*/
   client.close();
   console.log('Db closed..');
 });

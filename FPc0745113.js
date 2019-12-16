@@ -98,25 +98,46 @@ client.connect(err => {
                     loanNo:4443
                     }
                 ];
+/*
+ const collection2 = client.db("TheBankofIndia").collection("c0745113Col2");
+ collection2.insertMany(dataCol2, function(err,res){
+   console.log("Data inserted");
+ });
 
-// //Creating a second collection 
-// const collection2 = client.db("TheBankofIndia").collection("c0745113Col2");
-// //Inserting the above created documents into collection - 
-// collection2.insertMany(dataCol2, function(err,res){
-//   console.log("Data inserted");
-// });
-
-// //Creating a third collection 
-// const collection3 = client.db("TheBankofIndia").collection("c0745113Col3");
-// //Inserting the above created documents into collection - 
-// collection3.insertMany(dataCol3, function(err,res){
-//   console.log("Data inserted");
-// });
+ const collection3 = client.db("TheBankofIndia").collection("c0745113Col3");
+ collection3.insertMany(dataCol3, function(err,res){
+   console.log("Data inserted");
+ });
   
   collection.insertMany(data, function(err,res){
     console.log("Data inserted");
   });
-    
+*/
+  collection.find({}).toArray(function(err,response){
+    if(err) throw err;
+    //console.log(response);
+  });
+
+  var findQuery = { 'branchNo':101};
+collection.findOne(findQuery,function(err,response){
+  if(err) throw err;
+  //console.log(response);
+});
+/*
+var updateQuery = {'branchNo':30};
+var updateValue ={'$set':{'branchHeadId':301}};
+collection.updateOne(updateQuery,updateValue,function(err,response){
+  if(err) throw err;
+  console.log("Document updated");
+});
+
+
+var deleteQuery = {'branchNo':40};
+collection.deleteOne(deleteQuery,function(err,response){
+  if(err) throw err;
+  console.log("Document has been Removed !");
+});
+*/  
   client.close();
   console.log('Db closed..');
 });

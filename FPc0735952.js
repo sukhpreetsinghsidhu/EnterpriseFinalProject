@@ -71,6 +71,79 @@ client.connect(err => {
   });
 */
 
+//Creating collection 2 - 
+var dataCol2 = [
+  {
+    AccountNo:12345,
+    loanNo:4443,
+    loanAmount:100,
+    loanInterestRate:49,
+    loanYears:5,
+    loanStartDate:"10-Jan-2019"
+  },
+  {
+    AccountNo:88776655,
+    loanNo:765899,
+    loanAmount:8000,
+    loanInterestRate:13,
+    loanYears:4,
+    loanStartDate:"11-May-2018"
+  },
+  {
+    AccountNo:65656564,
+    loanNo:10000,
+    loanAmount:900,
+    loanInterestRate:20,
+    loanYears:10,
+    loanStartDate:"10-July-2017"
+  },
+  {
+    AccountNo:65656564,
+    loanNo:25670,
+    loanAmount:2000,
+    loanInterestRate:20,
+    loanYears:4,
+    loanStartDate:"10-July-2018"
+  }
+];
+
+// //Creating a second collection 
+// const collection2 = client.db("TheBankofIndia").collection("c0735952Col2");
+// //Inserting the above created documents into collection - 
+// collection2.insertMany(dataCol2, function(err,res){
+//   console.log("Data inserted");
+// });
+
+var dataCol3 = [
+{
+AccountNo:12345,
+postalCode:"L6E0W2",
+streetNo:14,
+streetName:"WindTrail Road",
+apt:"0",
+area:"NthnBrmpt",
+city:"Brampton",
+country:"Canada",
+},
+{
+AccountNo:88776655,
+postalCode:"M6R4S3",
+streetNo:10,
+streetName:"Hamana Drive",
+apt:"12",
+area:"Scarborough",
+city:"Toronto",
+country:"Canada",
+}
+];
+
+// //Creating a third collection 
+// const collection3 = client.db("TheBankofIndia").collection("c0735952Col3");
+// //Inserting the above created documents into collection - 
+// collection3.insertMany(dataCol3, function(err,res){
+//   console.log("Data inserted");
+// });
+
 //Displaying the all the documents from the collections
 
 collection.find({}).toArray(function(err,response){

@@ -8,6 +8,8 @@ const client = new MongoClient(uri, { useNewUrlParser: true ,useUnifiedTopology:
 console.log('Opening...');
 client.connect(err => {
   const collection = client.db("TheBankofIndia").collection("c0745113");
+  const collection2 = client.db("TheBankofIndia").collection("c0745113Col2");
+  const collection3 = client.db("TheBankofIndia").collection("c0745113Col3");
   console.log("Db connected");
   var data = [
                 {
@@ -99,12 +101,11 @@ client.connect(err => {
                     }
                 ];
 /*
- const collection2 = client.db("TheBankofIndia").collection("c0745113Col2");
+ 
  collection2.insertMany(dataCol2, function(err,res){
    console.log("Data inserted");
  });
-
- const collection3 = client.db("TheBankofIndia").collection("c0745113Col3");
+ 
  collection3.insertMany(dataCol3, function(err,res){
    console.log("Data inserted");
  });
@@ -113,31 +114,81 @@ client.connect(err => {
     console.log("Data inserted");
   });
 */
-  collection.find({}).toArray(function(err,response){
-    if(err) throw err;
-    //console.log(response);
-  });
-
-  var findQuery = { 'branchNo':101};
-collection.findOne(findQuery,function(err,response){
+  
+  
+  
+  
+  
+ /*
+  var findAQuery = { 'branchNo':101};
+collection.findOne(findAQuery,function(err,response){
   if(err) throw err;
   //console.log(response);
 });
 /*
-var updateQuery = {'branchNo':30};
-var updateValue ={'$set':{'branchHeadId':301}};
-collection.updateOne(updateQuery,updateValue,function(err,response){
+var updateAQuery = {'branchNo':30};
+var updateAValue ={'$set':{'branchHeadId':301}};
+collection.updateOne(updateAQuery,updateAValue,function(err,response){
   if(err) throw err;
   console.log("Document updated");
 });
-
-
-var deleteQuery = {'branchNo':40};
-collection.deleteOne(deleteQuery,function(err,response){
+var deleteAQuery = {'branchNo':40};
+collection.deleteOne(deleteAQuery,function(err,response){
   if(err) throw err;
   console.log("Document has been Removed !");
 });
-*/  
+*/ 
+
+
+
+
+/*
+  var findBQuery = { 'branchNo':101};
+collection2.findOne(findBQuery,function(err,response){
+  if(err) throw err;
+  //console.log(response);
+});
+/*
+var updateBQuery = {'postalCode':'M4R4S4'};
+var updateBValue ={'$set':{'branchHeadId':301}};
+collection2.updateOne(updateBQuery,updateBValue,function(err,response){
+  if(err) throw err;
+  console.log("Document updated");
+});
+var deleteBQuery = {'branchNo':40};
+collection2.deleteOne(deleteBQuery,function(err,response){
+  if(err) throw err;
+  console.log("Document has been Removed !");
+});
+*/ 
+  
+  
+  
+  
+
+
+  var findCQuery = { 'branchNo':40};
+collection3.findOne(findCQuery,function(err,response){
+  if(err) throw err;
+  console.log(response);
+});
+/*
+var updateCQuery = {employeeNo:779};
+var updateCValue ={'$set':{'accountNo':301344}};
+collection3.updateOne(updateCQuery,updateCValue,function(err,response){
+  if(err) throw err;
+  console.log("Document updated");
+});
+var deleteCQuery = {'branchNo':40};
+collection3.deleteOne(deleteCQuery,function(err,response){
+  if(err) throw err;
+  console.log("Document has been Removed !");
+});
+*/ 
+
+
+
+ 
   client.close();
   console.log('Db closed..');
 });

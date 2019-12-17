@@ -1,6 +1,6 @@
 /*
 Gursharan Preet Kaur
-C07477566
+C0747566
 */
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://Sukhpreet:Sunny987tt@cluster0-tyh4l.mongodb.net/test?retryWrites=true&w=majority";
@@ -8,6 +8,8 @@ const client = new MongoClient(uri, { useNewUrlParser: true ,useUnifiedTopology:
 console.log('Opening...');
 client.connect(err => {
   const collection = client.db("TheBankofIndia").collection("c07477566");
+  const collection3 = client.db("TheBankofIndia").collection("c07477566Col3");
+  const collection2 = client.db("TheBankofIndia").collection("c07477566Col2");
   console.log("Db connected");
   var data = [
               {
@@ -97,49 +99,97 @@ client.connect(err => {
                 employeeNo:654,
                 salary:15000,
                 commisionRate:5,
-                salaryPayDate:"1-mmy-yy",
+                salaryPayDate:"1-mm-yy",
                 bonus:500,
                 }
                 ];
-  /*
+
+
+				
   collection.insertMany(data, function(err,res){
     console.log("Data inserted");
   });
 
- const collection2 = client.db("TheBankofIndia").collection("c07477566Col2");
+
+
+  
+ /*
+ 
  collection2.insertMany(dataCol2, function(err,res){
    console.log("Data inserted");
  });
-
- const collection3 = client.db("TheBankofIndia").collection("c07477566Col3");
+ 
  collection3.insertMany(dataCol3, function(err,res){
    console.log("Data inserted");
  });
+ 
 */
-collection.find({}).toArray(function(err,response){
+
+
+
+/*
+var findQuery1= { 'firstName': "Gursharan Preet"};
+collection.findOne(findQuery1,function(err,response){
   if(err) throw err;
   console.log(response);
 });
 
-var findQuery = { 'firstName': "Sukhpreet Singh"};
-collection.findOne(findQuery,function(err,response){
+var deleteQuery1 = {'branchNo':'30'};
+collection.deleteOne(deleteQuery1,function(err,response){
   if(err) throw err;
-  console.log(response);
+  console.log("Collection has been Removed !");
+}); 
+var updateQuery1 = {'firstName':'Louis'};
+var updateValue1 ={'$set':{'position':'supervisor'}};
+collection.updateOne(updateQuery1,updateValue1,function(err,response)
+  if(err) throw err;
+  console.log("Collection updated");
 });
 /*
-var updateQuery = {'employeeNo':4441};
-var updateValue ={'$set':{'departmentNo':45}};
-collection.updateOne(updateQuery,updateValue,function(err,response){
+
+/*
+var deleteQuery2 = {'area':'Hilton Hills'};
+collection2.deleteOne(deleteQuery2,function(err,response){
+  if(err) throw err;
+  console.log("Collection has been Removed !");
+}); 
+
+var updateQuery2 = {'employeeNo':4441};
+var updateValue2 ={'$set':{'apt':45}};
+collection2.updateOne(updateQuery2,updateValue2,function(err,response)
+  if(err) throw err;
+  console.log("Collection updated");
+});
+var deleteQuery2 = {'firstName':'Iris'};
+collection2.deleteOne(deleteQuery2,function(err,response){
+  if(err) throw err;
+  console.log("Collection has been Removed !");
+}); 
+*/
+
+
+
+var deleteQuery3 = {'employeeNo':744};
+collection3.deleteOne(deleteQuery3,function(err,response){
+  if(err) throw err;
+  console.log("Collection has been Removed !");
+}); 
+/*
+var updateQuery3 = {'employeeNo':744};
+var updateValue3 ={'$set':{'commisionRate':45}};
+collection3.updateOne(updateQuery3,updateValue3,function(err,response)
   if(err) throw err;
   console.log("Collection updated");
 });
 
-var deleteQuery = {'firstName':'Iris'};
-collection.deleteOne(deleteQuery,function(err,response){
+var deleteQuery3 = {'bonus':'9000'};
+collection3.deleteOne(deleteQuery3,function(err,response){
   if(err) throw err;
   console.log("Collection has been Removed !");
-});
+}); 
 */
+
+
   client.close();
   console.log('Db closed..');
 });

@@ -1,201 +1,195 @@
 /*
-Sukhpreet Singh Sidhu 
-C0735952
+Gursharan Preet Kaur
+C0747566
 */
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://Sukhpreet:Sunny987tt@cluster0-tyh4l.mongodb.net/test?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true ,useUnifiedTopology: true });
 console.log('Opening...');
 client.connect(err => {
-  const collection = client.db("TheBankofIndia").collection("c0735952");
+  const collection = client.db("TheBankofIndia").collection("c07477566");
+  const collection3 = client.db("TheBankofIndia").collection("c07477566Col3");
+  const collection2 = client.db("TheBankofIndia").collection("c07477566Col2");
   console.log("Db connected");
   var data = [
-                { firstName: "Sukhpreet Singh" , 
-                lastName:"Sidhu", 
-                email:"sukhpreet.sidhu@email.com",
-                phone:56789123,
-                gender:"Male",
-                dob :"1-March-1994",
-                nationality:"Indian",
-                accountNo:12345, 
-                accountType:"Premium",
-                chequingBalance:20000.95,
-                savingsBalance:99000,
-                savingsInterestRate:27
-                },
-                { firstName: "Bruce" , 
-                lastName:"Wayne", 
-                email:"bruce.wayne@email.com",
-                phone:99988877,
-                gender:"Male",
-                dob :"1-June-1950",
-                nationality:"America",
-                accountNo:88776655, 
-                accountType:"Gold",
-                chequingBalance:10000000,
-                savingsBalance:887766990,
-                savingsInterestRate:45
-                },
-                { firstName: "Dianna" , 
-                lastName:"Queen", 
-                email:"dianna.queen@email.com",
-                phone:76588990,
-                gender:"Female",
-                dob :"1-May-1980",
-                nationality:"British",
-                accountNo:65656564, 
-                accountType:"Silver",
-                chequingBalance:7800,
-                savingsBalance:50000,
-                savingsInterestRate:15
-                },
-                { firstName: "Radha" , 
-                lastName:"Sawami", 
-                email:"radha.sawami@email.com",
-                phone:444666777,
-                gender:"Male",
-                dob :"1-June-1947",
-                nationality:"Indian",
-                accountNo:88779966, 
-                accountType:"Bronze",
-                chequingBalance:8000,
-                savingsBalance:7500,
-                savingsInterestRate:10
-                }
+              {
+                employeeNo:4441,
+                firstName:"Louis",
+                lastName:"Lane",
+                position:"Manager",
+                dob:"1-Jan-1992",
+                joinDate:"10-9-2019",
+                departmentNo:112,
+                branchNo:101
+              },
+              {
+                employeeNo:321,
+                firstName:"Iris",
+                lastName:"Allen",
+                position:"CTO",
+                dob:"10-Jan-1989",
+                joinDate:"11-July-2015",
+                departmentNo:565,
+                branchNo:30
+              },
+              {
+                employeeNo:654,
+                firstName:"Hardeep",
+                lastName:"Kaur",
+                position:"Sales Officer",
+                dob:"10-Oct-1985",
+                joinDate:"11-May-2016",
+                departmentNo:99,
+                branchNo:40
+              },
+              {
+                employeeNo:744,
+                firstName:"Gursharan Preet",
+                lastName:"Kaur",
+                position:"Head of IT",
+                dob:"10-March-1999",
+                joinDate:"18-Sept-2019",
+                departmentNo:45,
+                branchNo:45
+              }     
             ];
-  
-  //Inserting the above created documents into collection - 
-/*
+
+            var dataCol2 = [
+              {
+              employeeNo:744,
+              postalCode:"L8G7T4",
+              streetNo:67 ,
+              streetName:"WindBlazer Road",
+              apt:"0",
+              area:"Malton",
+              city:"Missisauga",
+              country:"Canada",
+              },
+              {
+              employeeNo:654,
+              postalCode:"M4R3S2",
+              streetNo:19,
+              streetName:"Dinosaur Crt",
+              apt:"0",
+              area:"Georgetown",
+              city:"Georgetown",
+              country:"Canada",
+              },
+              {
+              employeeNo:4441,
+              postalCode:"R4G5E2",
+              streetNo:10,
+              streetName:"Meowten Crt",
+              apt:"0",
+              area:"Hilton Hills",
+              city:"Georgetown",
+              country:"Canada",
+              }
+              ];
+
+              var dataCol3 = [
+                {
+                employeeNo:744,
+                salary:100000,
+                commisionRate:9,
+                salaryPayDate:"15-mm-yy",
+                bonus:9000,
+                },
+                {
+                employeeNo:654,
+                salary:15000,
+                commisionRate:5,
+                salaryPayDate:"1-mm-yy",
+                bonus:500,
+                }
+                ];
+
+
+				
   collection.insertMany(data, function(err,res){
     console.log("Data inserted");
   });
+
+
+
+  
+ /*
+ 
+ collection2.insertMany(dataCol2, function(err,res){
+   console.log("Data inserted");
+ });
+ 
+ collection3.insertMany(dataCol3, function(err,res){
+   console.log("Data inserted");
+ });
+ 
 */
 
-//Creating collection 2 - 
-var dataCol2 = [
-  {
-    AccountNo:12345,
-    loanNo:4443,
-    loanAmount:100,
-    loanInterestRate:49,
-    loanYears:5,
-    loanStartDate:"10-Jan-2019"
-  },
-  {
-    AccountNo:88776655,
-    loanNo:765899,
-    loanAmount:8000,
-    loanInterestRate:13,
-    loanYears:4,
-    loanStartDate:"11-May-2018"
-  },
-  {
-    AccountNo:65656564,
-    loanNo:10000,
-    loanAmount:900,
-    loanInterestRate:20,
-    loanYears:10,
-    loanStartDate:"10-July-2017"
-  },
-  {
-    AccountNo:65656564,
-    loanNo:25670,
-    loanAmount:2000,
-    loanInterestRate:20,
-    loanYears:4,
-    loanStartDate:"10-July-2018"
-  }
-];
 
-// //Creating a second collection 
-// const collection2 = client.db("TheBankofIndia").collection("c0735952Col2");
-// //Inserting the above created documents into collection - 
-// collection2.insertMany(dataCol2, function(err,res){
-//   console.log("Data inserted");
-// });
 
-var dataCol3 = [
-{
-AccountNo:12345,
-postalCode:"L6E0W2",
-streetNo:14,
-streetName:"WindTrail Road",
-apt:"0",
-area:"NthnBrmpt",
-city:"Brampton",
-country:"Canada",
-},
-{
-AccountNo:88776655,
-postalCode:"M6R4S3",
-streetNo:10,
-streetName:"Hamana Drive",
-apt:"12",
-area:"Scarborough",
-city:"Toronto",
-country:"Canada",
-}
-];
-
-// //Creating a third collection 
-// const collection3 = client.db("TheBankofIndia").collection("c0735952Col3");
-// //Inserting the above created documents into collection - 
-// collection3.insertMany(dataCol3, function(err,res){
-//   console.log("Data inserted");
-// });
-
-//Displaying the all the documents from the collections
-
-collection.find({}).toArray(function(err,response){
+/*
+var findQuery1= { 'firstName': "Gursharan Preet"};
+collection.findOne(findQuery1,function(err,response){
   if(err) throw err;
-  //console.log(response);
+  console.log(response);
 });
 
-//Display a particular document from the collection
-
-var findQuery = { 'firstName': "Sukhpreet Singh"};
-collection.findOne(findQuery,function(err,response){
-  if(err) throw err;
-  //console.log(response);
-})
-
-//Updating a particular document in the collection
-/*
-var updateQuery = {'accountNo':12345};
-var updateValue ={'$set':{'savingsInterestRate':30}};
-collection.updateOne(updateQuery,updateValue,function(err,response){
-  if(err) throw err;
-  //console.log("Collection updated");
-})
-*/
-
-//Updating multiple documents in the collection at the same time
-/*
-var updateQuery2 = {'nationality':'Indian'};
-var updateValue2 ={'$set':{'accountType':'Ultra Premium'}};
-collection.updateMany(updateQuery2,updateValue2,function(err,response){
-  if(err) throw err;
-  //console.log("Collections are updated");
-})
-*/
-
-//Delete a particular document from the collection 
-/*
-var deleteQuery = {'firstName':'Radha'};
-collection.deleteOne(deleteQuery,function(err,response){
+var deleteQuery1 = {'branchNo':'30'};
+collection.deleteOne(deleteQuery1,function(err,response){
   if(err) throw err;
   console.log("Collection has been Removed !");
-})
+}); 
+var updateQuery1 = {'firstName':'Louis'};
+var updateValue1 ={'$set':{'position':'supervisor'}};
+collection.updateOne(updateQuery1,updateValue1,function(err,response)
+  if(err) throw err;
+  console.log("Collection updated");
+});
+/*
+
+/*
+var deleteQuery2 = {'area':'Hilton Hills'};
+collection2.deleteOne(deleteQuery2,function(err,response){
+  if(err) throw err;
+  console.log("Collection has been Removed !");
+}); 
+
+var updateQuery2 = {'employeeNo':4441};
+var updateValue2 ={'$set':{'apt':45}};
+collection2.updateOne(updateQuery2,updateValue2,function(err,response)
+  if(err) throw err;
+  console.log("Collection updated");
+});
+var deleteQuery2 = {'firstName':'Iris'};
+collection2.deleteOne(deleteQuery2,function(err,response){
+  if(err) throw err;
+  console.log("Collection has been Removed !");
+}); 
 */
 
-//Delete many documents from the collection
+
+
+var deleteQuery3 = {'employeeNo':744};
+collection3.deleteOne(deleteQuery3,function(err,response){
+  if(err) throw err;
+  console.log("Collection has been Removed !");
+}); 
 /*
-var deleteQuery1 = {'gender':'Male'};
-collection.deleteMany(deleteQuery1,function(err,response){
-  if(err)throw err;
-  console.log("Collections have been Removed!");
-})
+var updateQuery3 = {'employeeNo':744};
+var updateValue3 ={'$set':{'commisionRate':45}};
+collection3.updateOne(updateQuery3,updateValue3,function(err,response)
+  if(err) throw err;
+  console.log("Collection updated");
+});
+
+var deleteQuery3 = {'bonus':'9000'};
+collection3.deleteOne(deleteQuery3,function(err,response){
+  if(err) throw err;
+  console.log("Collection has been Removed !");
+}); 
 */
+
+
   client.close();
   console.log('Db closed..');
 });

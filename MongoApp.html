@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+		<script src="https://s3.amazonaws.com/stitch-sdks/js/bundles/4.6.0/stitch.js"></script>
+	<body>
+	  <script>
+	  		const client = stitch.Stitch.initializeDefaultAppClient('thebankofindiaapp-xvnyj');
+  			const db = client.getServiceClient(stitch.RemoteMongoClient.factory, 'mongodb-atlas').db('TheBankofIndia');
+  			client.auth.loginWithCredential(new stitch.AnonymousCredential()).then(user =>
+    		{
+  				 db.collection('c0735952').find().asArray().then(posts=>{
+  				 	for (var i=0;i<posts.length;i++){
+  				 		var element=document.createElement("p");
+  				 		element.innerText=[i+1]+"."+posts[i]["Title"];
+  				 		document.body.appendChild(element);
+  				 	}
+  				 })
+  			});
+		</script>
+	</body>
+</html>
